@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+
+    <style>
+        #map-canvas {
+            height: 600px;
+            /*width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;*/
+        }
+        .form-control
+        {
+            width: auto;
+        }
+        .btn-direction{
+            font-size: 16px;
+            line-height: 2.1;
+            padding: 0px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapp">
+    <div class="col-md-12" style="padding-left: 40px !important; padding-top: 25px; text-align: center;">
+        <input googlesourceplace style="margin-left: 340px;" ng-model="homeController.fromPlace" type="text" class="form-control col-md-3" placeholder="Enter Source Location" id="startlocation"/>
+        <input googledestinationplace style="margin-left: 50px;" ng-model="homeController.toPlace" type="text" class="form-control col-md-3" placeholder="Enter Destination Location"  id="endlocation" />
+        <button id="btnDirection" class="col-md-2 btn btn-success btn-sm btn-direction" ng-click="calcRoute()">
+            Get Direction and Weather
+        </button>
+        <div class="col-md-2" style="margin-left: 100px;">
+            Welcome {{homeController.userData.name}}
+        </div>
+        <div  class="col-md-2" class="dropdown">
+        <img  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="" id="login_user_image" ng-click="homeController.showSignOut()" style="border-radius: 50%; height: 60px; width: 70px; margin-right: 30px; margin-left: 160px;">
+            <ul ng-click="homeController.signOut()" class="dropdown-menu btn-success" style="margin-left: 120px; background-color: #5cb85c;" aria-labelledby="login_user_image">
+                <li style="padding-left: 5px;">Sign Out</li>
+            </ul>
+        </div>
+        <input type="hidden" id="fromcityLat" name="fromcityLat" />
+        <input type="hidden" id="fromcityLng" name="fromcityLng" />
+        <input type="hidden" id="tocityLat" name="tocityLat" />
+        <input type="hidden" id="tocityLng" name="tocityLng" />
+        <br/></br>
+    </div>
+<div class="col-md-12">
+    <div class="col-md-2" style="border: 2px solid #ddd; margin-top: 10%; background-color: #ddd; margin-right: 20px; margin-left: 30px;">
+        <p>Source Location Weather</p>
+        <p>City: {{homeController.fromCity}} </p>
+        <p>State: {{homeController.fromState}}</p>
+        <p class="currentConditions" ng-bind-html="homeController.currentfromcityweather.html"></p>
+        <div class="currentIcon" ng-bind-html="homeController.fromcurrentIcon.html"></div>
+    </div>
+    <div class="col-md-7" id="map-canvas" style="display: block;"></div>
+    <div class="col-md-2" style="border: 2px solid #ddd; margin-top: 10%; background-color: #ddd; margin-left: 20px;">
+        <p>Destination Location Weather</p>
+        <p>City: {{homeController.toCity}} </p>
+        <p>State: {{homeController.toState}}</p>
+        <p class="currentConditions" ng-bind-html="homeController.currenttocityweather.html"></p>
+        <div class="currentIcon" ng-bind-html="homeController.tocurrentIcon.html"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

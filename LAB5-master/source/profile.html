@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body >
+<div class="profile-body" style="height: 100%;">
+<div style="float: right; margin-top: 10px; margin-right: 10px;">
+    <input type="submit" value="Logout" ng-click="profileController.logout()" class="btn btn-success"/>
+</div>
+<!--main-->
+<div class="main-content-agile">
+
+    <div style="padding-bottom:50px" >
+        <table style="width:100%">
+            <tr>
+                <td style="width:45%;padding-left:40px;vertical-align: top">
+                    <div style="padding-bottom:20px; padding-right: 200px; color: white">
+                        <h3>Update/Delete User Details</h3>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="color: white">Name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="name"
+                                       ng-model="fdata.fname" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="color: white">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="lname"
+                                       ng-model="fdata.lname" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="color: white">Email</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="email"
+                                       ng-model="fdata.email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="padding-right:110px; margin-left: 35%;">
+                                <input type="submit" value="Update" ng-click="profileController.updateData()" class="btn btn-success"/>
+                            </div>
+                            <br>
+                            <div style="padding-right:110px; margin-left: 35%;">
+                                <input type="submit" value="Delete" ng-click="profileController.DeleteData()" class="btn btn-success"/>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+<td>
+                <div class="col-md-6 col-md-offset-1">
+                    <div>
+                        <table class="w3-table w3-striped w3-border w3-centered w3-card-4">
+                            <tr>
+                                <th class="w3-brown" colspan="2">
+                                    User Profile Details
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td class="w3-green">{{profileController.data.name}}</td>
+                            </tr>
+                            <tr class="w3-white">
+                                <td>Mobile No</td>
+                                <td class="w3-red">{{profileController.data.MobileNo}}</td>
+                            </tr>
+                            <tr class="w3-white">
+                                <td>Email</td>
+                                <td style="background-color: skyblue;">{{profileController.data.email}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+
+
+
+
+    </div>
+
+</div>
+<!--//main-->
+</div>
+</body>
+</html>
